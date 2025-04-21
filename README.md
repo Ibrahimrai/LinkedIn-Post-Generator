@@ -1,39 +1,49 @@
-# 🚀 LinkedIn Post Generator (LLM-Powered + Chrome Extension)
+🚀 LinkedIn Post Generator — Fully Offline, LLM-Powered 🔒💻
 
-A fully offline LinkedIn post generator that runs on your CPU using LLaMA-2 and LangChain — designed for privacy, speed, and total control. Ideal for content creators, professionals, and productivity hackers!
+This project allows you to **generate LinkedIn posts** using your own **LLaMA 2 model locally on CPU** — no API keys, no cloud, no internet needed!
+
+🧠 Ideal for content creators, professionals, and privacy-conscious AI builders.
+
+## 📂 Project Structure
+
+
+linkedin-post-generator/
+│
+├── linkedin-agent/                     # 🧠 Backend - Flask + LangChain + LLaMA 2
+│   ├── app.py                          # Main Flask app that runs the local API
+│   ├── prompts.py                      # LangChain prompt template
+│   ├── models/                         # 🔥 Place your LLaMA model (.gguf) here
+│   │   └── llama-2-7b-chat.ggmlv3.q8_0.bin
+│   
+│
+├── linkedin-extension/                 # 🌐 Chrome Extension frontend
+│   ├── popup.html                      # UI for input/output
+│   ├── popup.js                        # JS logic (fetch API, clipboard, memory)
+│   ├── style.css                       # Styling
+│   ├── icon.png                        # Extension icon
+│   ├── manifest.json                   # Extension config
+│   ├── content.js                      # (optional) Page content script
+│   └── background.js                   # (optional) Background processing
+
+
+## 💡 How It Works
+
+- Paste your **raw content**
+- Choose a **tone** (Professional / Witty / Storytelling)
+- Set a **word limit**
+- Press **Generate**
+- A LinkedIn post will be generated **offline** using the LLaMA model!
+
+The Chrome Extension UI lets you:
+- Paste and generate posts instantly
+- Copy generated post to clipboard
+- Retain the last post even if popup closes
+- Set custom word limits
 
 ---
 
-## 🌟 Features
+## ⚙️ Built With
 
-- 🧠 **Local LLaMA-2 model (GGUF)**
-- 🔗 **LangChain + Flask backend**
-- 💬 **Tone control** — Choose from professional, witty, or storytelling
-- ✍️ **Word limit** — Limit the post size as per your preference
-- 📋 **Copy button** — Instantly copy post to clipboard
-- 💾 **Persistent memory** — Keeps last post even if popup closes
-- 🌐 **Chrome Extension frontend** — Simple, elegant UI
-
----
-
-## 🛠️ Tech Stack
-
-| Layer           | Stack                                   |
-|----------------|------------------------------------------|
-| Backend (LLM)   | Flask + LangChain + CTransformers       |
-| Model           | LLaMA 2 7B (ggmlv3.q8_0.bin)            | You can use any other Faster LLM like mistral etc  
-| Embeddings      | Sentence Transformers                   |
-| Frontend        | HTML/CSS + JavaScript (Chrome Extension)|
-| Storage         | chrome.storage.local                    |
-
----
-
-## 🔧 Installation
-
-### 🔹 Backend
-
-bash
-git clone https://github.com/Ibrahimrai/LinkedIn-Post-Generator-LLM.git
-cd LinkedIn-Post-Generator-LLM
-pip install -r requirements.txt
-python app.py
+- 🧠 LLaMA 2 7B (Quantized `.ggmlv3.q8_0` via `ctransformers`)
+- 🔗 LangChain + Flask for backend logic
+- 🧩 Chrome Extension (HTML/CSS/
